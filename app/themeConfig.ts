@@ -1,4 +1,3 @@
-// theme/themeConfig.ts
 import type { ThemeConfig } from 'antd';
 
 export const darkTheme: ThemeConfig = {
@@ -18,13 +17,47 @@ export const darkTheme: ThemeConfig = {
     Button: {
       colorBgContainer: `rgb(10, 19, 180)`,
       colorBorder: `rgb(10, 19, 180)`,
-      fontSize: 20
+      fontSize: 20,
+      colorTextLightSolid: `#fff`,
+      colorText:`#fff`,
     },
     Menu: {
       colorPrimary: `#1E5FDA`,
-      colorBgContainer: `rgb(1, 29, 83)`,
       controlItemBgActive: `transparent`,
-      colorText: `#fff`
+      itemSelectedColor: `rgb(30, 95, 218)`,
+      colorText: `rgb(255, 255, 255)`,
+      colorErrorBg: `rgb(255, 255, 255)`,
+      colorBgContainer: `rgb(1, 29, 83)`
+    },
+    Card: {
+      colorBgContainer: `rgb(5, 9, 90)`,
+      colorText: `rgba(255, 255, 255, 0.88)`,
+      colorTextHeading: `rgba(255, 255, 255, 0.88)`,
+      headerFontSize: 26,
+      fontSize: 16,
+      borderRadiusLG: 12,
+    },
+    Typography: {
+      fontSizeHeading1: 50
+    },
+    Anchor: {
+      colorSplit: `rgb(42, 52, 243)`
+    },
+    Breadcrumb: {
+      colorText:` rgb(42, 52, 243)`,
+      colorTextDescription: `rgba(255, 255, 255, 0.45)`
+    },
+    Dropdown: {
+      colorBgElevated: `rgb(5, 9, 90)`,
+      colorText: `rgba(253, 253, 253, 0.88)`
+    },
+    Switch: {
+      colorPrimary:`rgb(255, 255, 255)`,
+      handleBg: `rgb(199, 21, 21)`,
+      colorText: `#2A34F3`,
+    },
+    Layout:{
+      bodyBg: `#010747`
     }
   },
 }
@@ -52,9 +85,23 @@ export const lightTheme = {
       colorPrimary: `#1E5FDA`,
       colorBgContainer: `#fff`,
       controlItemBgActive: `transparent`,
-      colorText: `#1E1B1B`
-    }
+      itemSelectedColor: `rgb(30, 95, 218)`,
+      colorText: `rgb(30, 27, 27)`,
+      colorErrorBg: `rgb(255, 255, 255)`
+    },
+    Typography: {
+      fontSizeHeading1: 50
+    },
+    Anchor: {
+      colorSplit: `rgb(42, 52, 243)`
+    },
+    Breadcrumb: {
+      colorText:` rgb(42, 52, 243)`,
+      colorTextDescription: `rgba(0, 0, 0, 0.45)`
+    },
+    Dropdown: {
+      colorBgElevated: `rgb(255, 255, 255)`,
+      colorText: `rgba(0, 0, 0, 0.88)`
+    },
   }
 }
-
-

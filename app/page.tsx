@@ -1,31 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
-import {
-  Button,
-  Card,
-  ConfigProvider,
-  Switch,
-  Breadcrumb,
-  Layout,
-  Menu,
-  theme,
-} from "antd";
-import { lightTheme, darkTheme } from "./themeConfig";
 import {
   LaptopOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
   NotificationOutlined,
   UserOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
+import {
+  Avatar,
+  Breadcrumb,
+  Button,
+  ConfigProvider,
+  Layout,
+  Menu,
+  Space,
+  Switch,
+  theme,
+} from "antd";
+import Image from "next/image";
+import React, { useState } from "react";
+import { darkTheme, lightTheme } from "./themeConfig";
 const { Header, Content, Sider } = Layout;
-
-const items1: MenuProps["items"] = ["1", "2", "3"].map((key) => ({
-  key,
-  label: `nav ${key}`,
-}));
 
 const items2: MenuProps["items"] = [
   UserOutlined,
@@ -43,7 +38,6 @@ const items2: MenuProps["items"] = [
 
 const HomePage = () => {
   const [currentTheme, setCurrentTheme] = useState("dark");
-  const [collapsed, setCollapsed] = useState(false);
 
   const onChange = () => {
     setCurrentTheme(currentTheme === "dark" ? "light" : "dark");
@@ -58,33 +52,58 @@ const HomePage = () => {
         <Layout>
           <Header
             style={{
-              position: "sticky",
+              position: `sticky`,
               top: 0,
               zIndex: 1,
-              width: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
+              width: `100%`,
+              display: `flex`,
+              alignItems: `center`,
+              justifyContent: `space-between`,
+              height: `80px`,
+              lineHeight: `normal`,
+              background: currentTheme === "dark" ? `#011D53` : `#fff`,
             }}
           >
-            <div className="demo-logo" />
-            <Button
-              type="text"
-              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-              onClick={() => setCollapsed(!collapsed)}
-              style={{
-                fontSize: "16px",
-                width: 64,
-                height: 64,
-              }}
-            />
-            <Menu
-              theme="dark"
-              mode="horizontal"
-              defaultSelectedKeys={["2"]}
-              items={items1}
-            />
-            <Switch defaultChecked onChange={onChange} />
+            <div className="demo-logo">
+              <Image
+                src={
+                  currentTheme === "dark"
+                    ? `/logo-white.png`
+                    : `/logo-black.png`
+                }
+                width={148}
+                height={48}
+                alt="logo"
+              />
+            </div>
+            <Space>
+              <Switch
+                defaultChecked
+                onChange={onChange}
+                checkedChildren={"Dark"}
+                unCheckedChildren={"Light"}
+                style={{ color: "#011D53" }}
+              />
+              <Image
+                src="/notification.png"
+                width={20}
+                height={20}
+                alt="notification"
+              />
+              <Image src="/search.png" width={34} height={34} alt="search" />
+              <Image src="/ai.png" width={46} height={55} alt="chat-ai" />
+              <Avatar
+                size={48}
+                src={
+                  <Image
+                    src="/profile.png"
+                    width={48}
+                    height={48}
+                    alt="profilePicture"
+                  />
+                }
+              />
+            </Space>
           </Header>
           <Layout>
             <Sider
@@ -92,7 +111,7 @@ const HomePage = () => {
               style={{ background: colorBgContainer }}
               trigger={null}
               collapsible
-              collapsed={collapsed}
+              collapsed={true}
             >
               <Menu
                 mode="inline"
@@ -117,6 +136,7 @@ const HomePage = () => {
                 }}
               >
                 Content
+                <Button>Test btn</Button>
               </Content>
             </Layout>
           </Layout>
